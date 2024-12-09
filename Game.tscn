@@ -1,0 +1,573 @@
+[gd_scene load_steps=20 format=3 uid="uid://kic45fjk1hxl"]
+
+[ext_resource type="Script" path="res://controller.gd" id="2_10nj8"]
+[ext_resource type="LabelSettings" uid="uid://nda7n4lfvv4v" path="res://node_2d.tres" id="3_ff2iw"]
+[ext_resource type="LabelSettings" uid="uid://dxwh0kqf4agf3" path="res://Habitat.tres" id="4_yeon5"]
+[ext_resource type="LabelSettings" uid="uid://cy68h5mph62ni" path="res://Energy.tres" id="5_6h4rk"]
+[ext_resource type="Texture2D" uid="uid://do84cvdspryj6" path="res://Travel Textures/Long Travel.jpg" id="6_feeka"]
+[ext_resource type="LabelSettings" uid="uid://day81i808t0qc" path="res://Fitness.tres" id="6_m11ew"]
+[ext_resource type="Texture2D" uid="uid://demxja8y4c6kv" path="res://Travel Textures/Elk Icon.png" id="7_hoiiw"]
+[ext_resource type="Script" path="res://animation_player_game.gd" id="8_rr8tp"]
+[ext_resource type="Script" path="res://tutorial.gd" id="9_ecpj5"]
+[ext_resource type="AudioStream" uid="uid://ponqrn30nhvl" path="res://Sounds/One Man Symphony - A New Day's Hurry (Free) - 01 A New Day Begins (General Background Music).mp3" id="10_fnnmy"]
+[ext_resource type="AudioStream" uid="uid://bf5nb0tx5eef3" path="res://Sounds/eating-sound-effect-36186.mp3" id="11_ttu3n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vvskt"]
+font_size = 31
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_qaa7g"]
+resource_name = "Long Travel"
+length = 10.0
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Buck Long:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0760062, 9.96948),
+"transitions": PackedFloat32Array(1, 1),
+"update": 2,
+"values": [Vector2(82, 374), Vector2(1109, 432)]
+}
+
+[sub_resource type="Animation" id="Animation_2aalu"]
+resource_name = "Med Travel"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Buck Med:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0633385, 7.91731),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(13, 17), Vector2(962, 678)]
+}
+
+[sub_resource type="Animation" id="Animation_tngjp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1055, 424)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Buck Med:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 17)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Buck Long:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, 89)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Tutorial:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(361, 191.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Tutorial/Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Welcome to Scarcity! 
+In Scarcity, you play as an elk trying to survive
+and reproduce. To do so, you must choose to
+forage in your current habitat, or move to a 
+new habitat"]
+}
+
+[sub_resource type="Animation" id="Animation_3jelw"]
+resource_name = "Short Travel"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0380032, 4.9404),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, 17), Vector2(1055, 424)]
+}
+
+[sub_resource type="Animation" id="Animation_etnv1"]
+resource_name = "Tutorial"
+length = 11.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Tutorial:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(361, 191.5), Vector2(309, 67), Vector2(698, 61), Vector2(265, 341), Vector2(361, 191.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Tutorial/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Welcome to Scarcity! 
+In Scarcity, you play as an elk trying to survive
+and reproduce. To do so, you must choose to
+forage in your current habitat, or move to a 
+new habitat", "Above, Habitat Energy represents the amount
+of energy available in the current area. 
+As you forage, Habitat Energy decreases. As
+Habitat Energy decreases, so to do your energy
+returns each time you forage. ", "For example, you are likely to get more energy
+from a habitat with 100 energy each time you
+forage than a habitat with 50 energy. There is
+an element of random chance each time you 
+forage so this will not always be the case.", "To the left you can see your Total Energy. This
+is the amount of energy you have. To get more
+energy you will need to forage. Each time you 
+forage, two dice are rolled. The amount of
+energy you gain from foraging equals your die
+roll multiplied by the current habitat energy 
+divided by 100.", "Foraging costs 1 energy point and there is
+a daily maintenance cost of 2, so your net
+energy gain will equal your energy gained 
+minus 3. ", "Above is your Fitness score. Your Fitness is
+dependent on your Total Energy. The higher
+your Total Energy, the higher your Fitness.
+At the end of the game, your Fitness score
+determines how many offspring you produce. 
+The goal is to have as many offspring as 
+possible.", "If the Habitat Energy gets too low or is 
+depleted, you will need to travel to a new
+resource patch. To do this, click the \"Travel\"
+button to the left. Travelling costs energy 
+depending on how far the next resource patch
+is, so be careful.", "Not all habitats are created equal. Some 
+have more energy than others. Keep that
+in mind when deciding whether to forage or
+travel.", "Each time you forage or travel,  a day passes. 
+You can see how many days you have left 
+underneath your Total Energy. The game
+ends on day 0. 
+", "And that's all you need to know to get started!
+Try to find the best strategy to maximize 
+your fitness. Consider when your habitat is
+no longer worth foraging in and when it is 
+best to travel to a new location. Good Luck!", "And that's all you need to know to get started!
+Try to find the best strategy to maximize 
+your fitness. Consider when your habitat is
+no longer worth foraging in and when it is 
+best to travel to a new location. Good Luck!"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0evv"]
+_data = {
+"Long Travel": SubResource("Animation_qaa7g"),
+"Med Travel": SubResource("Animation_2aalu"),
+"RESET": SubResource("Animation_tngjp"),
+"Short Travel": SubResource("Animation_3jelw"),
+"Tutorial": SubResource("Animation_etnv1")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_84dgq"]
+font_size = 19
+font_color = Color(0, 0, 0, 1)
+
+[node name="Node" type="Node"]
+
+[node name="Controller" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_10nj8")
+
+[node name="TextureRect" type="TextureRect" parent="Controller"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.7567
+offset_bottom = 80.7567
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+
+[node name="Elk" type="TextureRect" parent="Controller"]
+offset_left = 440.0
+offset_top = 187.0
+offset_right = 1598.0
+offset_bottom = 1001.0
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Controller"]
+offset_top = -16.0
+offset_right = 240.0
+offset_bottom = 752.0
+color = Color(0.772549, 0.772549, 0.666667, 1)
+
+[node name="Forage_Button" type="Button" parent="Controller"]
+offset_left = 14.0
+offset_top = 119.0
+offset_right = 222.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 29
+text = "Forage"
+
+[node name="Main_Menu_Button" type="Button" parent="Controller"]
+offset_left = 13.0
+offset_top = 563.0
+offset_right = 221.0
+offset_bottom = 634.0
+theme_override_font_sizes/font_size = 29
+text = "Main Menu"
+
+[node name="Travel_Button" type="Button" parent="Controller"]
+offset_left = 16.0
+offset_top = 421.0
+offset_right = 224.0
+offset_bottom = 492.0
+theme_override_font_sizes/font_size = 29
+text = "Travel"
+
+[node name="Roll_Value_Text" type="Label" parent="Controller"]
+offset_left = 39.0
+offset_top = 187.0
+offset_right = 201.0
+offset_bottom = 262.0
+text = "Roll Value:"
+label_settings = ExtResource("3_ff2iw")
+vertical_alignment = 1
+
+[node name="Roll_Value" type="Label" parent="Controller/Roll_Value_Text"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 22.0
+offset_right = 182.0
+offset_bottom = 69.0
+text = "TEST"
+label_settings = ExtResource("3_ff2iw")
+
+[node name="Habitat_Energy_Text" type="Label" parent="Controller"]
+offset_left = 416.0
+offset_top = -7.0
+offset_right = 647.0
+offset_bottom = 68.0
+text = "Habitat Energy:"
+label_settings = ExtResource("4_yeon5")
+vertical_alignment = 1
+
+[node name="Habitat_Energy" type="Label" parent="Controller/Habitat_Energy_Text"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 21.0
+offset_right = 269.0
+offset_bottom = 61.0
+text = "TEST"
+label_settings = ExtResource("4_yeon5")
+
+[node name="Energy_Gained_Text" type="Label" parent="Controller"]
+offset_left = 12.0
+offset_top = 238.0
+offset_right = 242.0
+offset_bottom = 313.0
+text = "Energy Gained:"
+label_settings = ExtResource("3_ff2iw")
+vertical_alignment = 1
+
+[node name="Energy_Gained" type="Label" parent="Controller/Energy_Gained_Text"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 22.0
+offset_right = 233.0
+offset_bottom = 62.0
+text = "TEST"
+label_settings = ExtResource("3_ff2iw")
+
+[node name="Travel_Cost_Text" type="Label" parent="Controller"]
+offset_left = 38.0
+offset_top = 476.0
+offset_right = 346.0
+offset_bottom = 551.0
+text = "Travel Cost:"
+label_settings = ExtResource("3_ff2iw")
+vertical_alignment = 1
+
+[node name="Travel_Cost" type="Label" parent="Controller/Travel_Cost_Text"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 23.0
+offset_right = 198.0
+offset_bottom = 63.0
+text = "TEST"
+label_settings = ExtResource("3_ff2iw")
+
+[node name="Net_Energy_Gained_Text" type="Label" parent="Controller"]
+offset_left = 11.0
+offset_top = 281.0
+offset_right = 319.0
+offset_bottom = 356.0
+text = "Net Energy Gained:"
+label_settings = ExtResource("3_ff2iw")
+vertical_alignment = 1
+
+[node name="Net_Energy_Gained" type="Label" parent="Controller/Net_Energy_Gained_Text"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 53.0
+offset_right = 134.0
+offset_bottom = 93.0
+text = "TEST"
+label_settings = ExtResource("3_ff2iw")
+
+[node name="Total_Energy_Text" type="Label" parent="Controller"]
+offset_left = 11.0
+offset_top = -2.0
+offset_right = 319.0
+offset_bottom = 73.0
+text = "Total Energy:"
+label_settings = ExtResource("5_6h4rk")
+vertical_alignment = 1
+
+[node name="Total_Energy" type="Label" parent="Controller/Total_Energy_Text"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 22.0
+offset_right = 219.0
+offset_bottom = 62.0
+text = "TEST"
+label_settings = ExtResource("5_6h4rk")
+
+[node name="Fitness_Text" type="Label" parent="Controller"]
+offset_left = 929.0
+offset_top = -8.0
+offset_right = 1237.0
+offset_bottom = 67.0
+text = "Fitness ="
+label_settings = ExtResource("6_m11ew")
+vertical_alignment = 1
+
+[node name="Fitness" type="Label" parent="Controller/Fitness_Text"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 17.0
+offset_right = 195.0
+offset_bottom = 57.0
+text = "TEST"
+label_settings = ExtResource("6_m11ew")
+
+[node name="Rolls_Left_Text" type="Label" parent="Controller"]
+offset_left = 10.0
+offset_top = 44.0
+offset_right = 318.0
+offset_bottom = 119.0
+text = "Days Left:"
+label_settings = ExtResource("5_6h4rk")
+vertical_alignment = 1
+
+[node name="Rolls_Left" type="Label" parent="Controller/Rolls_Left_Text"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 22.0
+offset_right = 186.0
+offset_bottom = 62.0
+text = "TEST"
+label_settings = ExtResource("5_6h4rk")
+
+[node name="Cutscenes" type="TextureRect" parent="Controller"]
+visible = false
+offset_right = 1185.0
+offset_bottom = 759.0
+texture = ExtResource("6_feeka")
+expand_mode = 3
+
+[node name="Short Label" type="Label" parent="Controller/Cutscenes"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 239.0
+offset_top = 14.0
+offset_right = -238.0
+offset_bottom = 105.0
+grow_horizontal = 2
+text = "It's a short distance to the next resource patch
+ (Travel Cost = 5)"
+label_settings = SubResource("LabelSettings_vvskt")
+horizontal_alignment = 1
+
+[node name="Med Label" type="Label" parent="Controller/Cutscenes"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 226.0
+offset_top = 11.0
+offset_right = -211.0
+offset_bottom = 55.0
+grow_horizontal = 2
+text = "It's a medium distance to the next resource patch
+(Travel Cost = 10)"
+label_settings = SubResource("LabelSettings_vvskt")
+horizontal_alignment = 1
+
+[node name="Long Label" type="Label" parent="Controller/Cutscenes"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 249.0
+offset_top = 12.0
+offset_right = -255.0
+offset_bottom = 56.0
+grow_horizontal = 2
+text = "It's a long distance to the next resource patch
+(Travel Cost = 15)"
+label_settings = SubResource("LabelSettings_vvskt")
+horizontal_alignment = 1
+
+[node name="Slow Buck" type="TextureRect" parent="Controller/Cutscenes"]
+visible = false
+layout_mode = 0
+offset_left = 1055.0
+offset_top = 424.0
+offset_right = 1166.0
+offset_bottom = 535.0
+texture = ExtResource("7_hoiiw")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Controller/Cutscenes/Slow Buck"]
+libraries = {
+"": SubResource("AnimationLibrary_m0evv")
+}
+script = ExtResource("8_rr8tp")
+
+[node name="Buck Med" type="TextureRect" parent="Controller/Cutscenes"]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 17.0
+offset_right = 59.0
+offset_bottom = 62.0
+texture = ExtResource("7_hoiiw")
+expand_mode = 1
+
+[node name="Buck Long" type="TextureRect" parent="Controller/Cutscenes"]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 89.0
+offset_right = 39.0
+offset_bottom = 111.0
+texture = ExtResource("7_hoiiw")
+expand_mode = 1
+
+[node name="Tutorial" type="ColorRect" parent="Controller"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -132.5
+offset_right = 215.0
+offset_bottom = 132.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.843137, 0.678431, 1)
+script = ExtResource("9_ecpj5")
+
+[node name="Label" type="Label" parent="Controller/Tutorial"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 18.5
+offset_right = 95.0
+offset_bottom = 45.5
+grow_horizontal = 2
+text = "Welcome to Scarcity! 
+In Scarcity, you play as an elk trying to survive
+and reproduce. To do so, you must choose to
+forage in your current habitat, or move to a 
+new habitat"
+label_settings = SubResource("LabelSettings_84dgq")
+horizontal_alignment = 1
+
+[node name="Next Button" type="Button" parent="Controller/Tutorial"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 209.5
+offset_right = 407.0
+offset_bottom = 245.5
+text = "NEXT
+"
+
+[node name="Skip Button" type="Button" parent="Controller/Tutorial"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 209.5
+offset_right = 107.0
+offset_bottom = 245.5
+text = "SKIP
+"
+
+[node name="Music" type="AudioStreamPlayer" parent="Controller"]
+stream = ExtResource("10_fnnmy")
+
+[node name="Bite" type="AudioStreamPlayer" parent="Controller"]
+stream = ExtResource("11_ttu3n")
+
+[connection signal="pressed" from="Controller/Forage_Button" to="Controller" method="_on_forage_button_pressed"]
+[connection signal="pressed" from="Controller/Main_Menu_Button" to="Controller" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Controller/Travel_Button" to="Controller" method="_on_travel_button_pressed"]
+[connection signal="animation_finished" from="Controller/Cutscenes/Slow Buck/AnimationPlayer" to="Controller/Cutscenes/Slow Buck/AnimationPlayer" method="_on_animation_finished"]
+[connection signal="pressed" from="Controller/Tutorial/Next Button" to="Controller/Tutorial" method="_on_next_button_pressed"]
+[connection signal="pressed" from="Controller/Tutorial/Skip Button" to="Controller/Tutorial" method="_on_skip_button_pressed"]

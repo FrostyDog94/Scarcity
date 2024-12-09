@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://vyny2sx21dii"]
+
+[ext_resource type="Texture2D" uid="uid://bwdu051nlac12" path="res://Travel Textures/Short Travel.jpg" id="1_itw07"]
+[ext_resource type="Texture2D" uid="uid://cnmuxv833votb" path="res://Sprites/Elk Icon.png" id="2_sxhgj"]
+
+[sub_resource type="Animation" id="Animation_o8wyn"]
+resource_name = "Short Travel"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elk:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.126677, 3.63563),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, 17), Vector2(835, 285)]
+}
+
+[sub_resource type="Animation" id="Animation_7wimf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elk:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, 17)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8lqt6"]
+_data = {
+"RESET": SubResource("Animation_7wimf"),
+"Short Travel": SubResource("Animation_o8wyn")
+}
+
+[node name="ShortWalk" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_itw07")
+expand_mode = 1
+
+[node name="Elk" type="TextureRect" parent="."]
+offset_left = 25.0
+offset_top = 17.0
+offset_right = 152.0
+offset_bottom = 125.0
+texture = ExtResource("2_sxhgj")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8lqt6")
+}
+autoplay = "Short Travel"

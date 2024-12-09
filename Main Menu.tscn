@@ -1,0 +1,220 @@
+[gd_scene load_steps=18 format=3 uid="uid://c13ra4qqwy1lu"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_uhapq"]
+[ext_resource type="Texture2D" uid="uid://8hywb7pxqbo3" path="res://background textures/Main Menu.jpg" id="2_tmhua"]
+[ext_resource type="AudioStream" uid="uid://cjeqnttt3geeg" path="res://Sounds/Outdoor_Ambiance.mp3" id="3_gpi0i"]
+[ext_resource type="Texture2D" uid="uid://bbtk8ghdbahxd" path="res://background textures/Green.png" id="4_ynqt3"]
+[ext_resource type="LabelSettings" uid="uid://dolrd4njn4iji" path="res://Main Menu.tres" id="5_ec4wv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8tkrn"]
+font_size = 45
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jgdf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4onq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dumo7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nymb4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15vb8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lfupb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ol3kn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3gpl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67d8h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ktojl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4aoe"]
+
+[node name="Main menu" type="Node"]
+script = ExtResource("1_uhapq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tmhua")
+expand_mode = 2
+
+[node name="Play_Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -134.0
+offset_right = -157.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "PLAY"
+
+[node name="Credits_Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 424.0
+offset_top = -303.0
+offset_right = 551.0
+offset_bottom = -253.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "CREDITS"
+
+[node name="Quit_Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = 118.0
+offset_right = -157.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="Rules_Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -7.0
+offset_right = -157.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "RULES
+"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gpi0i")
+autoplay = true
+
+[node name="Credits" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ynqt3")
+stretch_mode = 1
+
+[node name="Title" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_right = 171.0
+offset_bottom = 137.0
+grow_horizontal = 2
+text = "Credits"
+label_settings = ExtResource("5_ec4wv")
+
+[node name="Credits" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.5
+offset_top = -187.0
+offset_right = 332.5
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Developed by Andrew Soguero
+
+Designed by Paul Hampton
+
+Art by Andrew Soguero
+
+Music by One Man Symphony"
+label_settings = SubResource("LabelSettings_8tkrn")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Credits"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 170.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 25
+text = "RETURN"
+
+[node name="Button2" type="Button" parent="Credits"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 170.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 25
+text = "RETURN"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 836.0
+offset_top = 28.0
+offset_right = 983.0
+offset_bottom = 64.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jgdf0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_y4onq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dumo7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nymb4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_15vb8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_lfupb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ol3kn")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_n3gpl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_67d8h")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ktojl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4aoe")
+button_pressed = true
+text = "Fullscreen"
+
+[connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Credits_Button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Rules_Button" to="." method="_on_rules_button_pressed"]
+[connection signal="pressed" from="Credits/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Credits/Button2" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

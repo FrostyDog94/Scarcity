@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://xl7uxb8iswxt"]
+
+[ext_resource type="Script" path="res://rules.gd" id="1_8jj2m"]
+[ext_resource type="Texture2D" uid="uid://bbtk8ghdbahxd" path="res://background textures/Green.png" id="2_w1riy"]
+[ext_resource type="LabelSettings" uid="uid://dolrd4njn4iji" path="res://Main Menu.tres" id="3_pffkf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0dhet"]
+line_spacing = 1.0
+font_size = 29
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Rules" type="Node"]
+script = ExtResource("1_8jj2m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w1riy")
+stretch_mode = 1
+
+[node name="Rules_Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 81.0
+grow_horizontal = 2
+text = "RULES"
+label_settings = ExtResource("3_pffkf")
+
+[node name="Rules1" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 131.0
+offset_right = 1068.0
+offset_bottom = 432.0
+text = "Welcome to Scarcity! In Scarcity, you play as an elk with the ultimate goal of 
+reproducing. To do this, you must maximize the amount of energy you consume 
+vs the amount of energy you use to survive.
+
+You have 30 days to eat as much as possible while minimizing your energy loss. 
+In the end, your fitness score will determine the number of offspring you have,
+but only if you survive. 
+
+The objective is to produce more offspring than your classmates. "
+label_settings = SubResource("LabelSettings_0dhet")
+
+[node name="Rules2" type="Label" parent="."]
+visible = false
+offset_left = 12.0
+offset_top = 131.0
+offset_right = 1068.0
+offset_bottom = 432.0
+text = "Each day, you must decide whether you'd like to remain at your current resource 
+patch or move to a new one. The amount of food at each resource patch varies 
+and the distance between them is unknown so choose carefully. 
+
+To stay at your current resource patch, click \"Forage\". A pair of dice are rolled 
+and the energy you recieve will be based on the value of your roll and the 
+amount of energy left at that resource patch. The equation looks like this:
+
+Energy gained = Total value of roll * (energy available in habitat / 100)
+
+"
+label_settings = SubResource("LabelSettings_0dhet")
+
+[node name="Rules3" type="Label" parent="."]
+visible = false
+offset_left = 12.0
+offset_top = 131.0
+offset_right = 1068.0
+offset_bottom = 432.0
+text = "After your energy gained is calculated, your foraging cost (1) and daily 
+maintenance cost (2) are subtracted giving you your net energy gained. 
+
+To move to a new resource patch, click \"Travel\". Each resource patch has a 
+variable amount of energy and the cost of travelling to a new resource patch 
+depends on the distance to it. If you are low on energy, travelling can be 
+dangerous. 
+
+When you travel, the travel cost will be automatically subtracted from your
+total energy."
+label_settings = SubResource("LabelSettings_0dhet")
+
+[node name="Rules4" type="Label" parent="."]
+visible = false
+offset_left = 12.0
+offset_top = 131.0
+offset_right = 1068.0
+offset_bottom = 432.0
+text = "Your fitness score represents the amount of energy available to reproduce. You 
+need a fitness of at least 1 to produce offspring. For example, a fitness score of
+0.56 equals 0 offspring, a fitness score of 1.23 equals 1 offsprings, and a fitness
+score of 2.49 equals two offspring and so on.
+
+Try to get the highest fitness score you can!"
+label_settings = SubResource("LabelSettings_0dhet")
+
+[node name="Next_Button" type="Button" parent="."]
+offset_left = 424.0
+offset_top = 550.0
+offset_right = 649.0
+offset_bottom = 634.0
+theme_override_font_sizes/font_size = 50
+text = "NEXT"
+
+[connection signal="pressed" from="Next_Button" to="." method="_on_next_button_pressed"]
