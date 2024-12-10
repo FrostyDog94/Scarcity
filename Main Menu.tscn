@@ -77,6 +77,22 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
 text = "CREDITS"
 
+[node name="Settings_Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 424.0
+offset_top = -241.0
+offset_right = 551.0
+offset_bottom = -191.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "SETTINGS"
+
 [node name="Quit_Button" type="Button" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -213,6 +229,7 @@ text = "Fullscreen"
 
 [connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Credits_Button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Settings_Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Quit_Button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Rules_Button" to="." method="_on_rules_button_pressed"]
 [connection signal="pressed" from="Credits/Button" to="." method="_on_button_pressed"]

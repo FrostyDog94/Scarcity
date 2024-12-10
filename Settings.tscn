@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck04t4bbfbcfc"]
+
+[ext_resource type="Texture2D" uid="uid://bbtk8ghdbahxd" path="res://background textures/Green.png" id="1_5nuvy"]
+[ext_resource type="Script" path="res://settings.gd" id="1_situn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ji5gx"]
+font_size = 65
+font_color = Color(1, 0, 0, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4lf6o"]
+font_size = 21
+font_color = Color(1, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Settings" type="Node"]
+script = ExtResource("1_situn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5nuvy")
+stretch_mode = 1
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 45.0
+offset_right = 37.0
+offset_bottom = 68.0
+grow_horizontal = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_ji5gx")
+
+[node name="Min Roll" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 164.0
+offset_right = 191.0
+offset_bottom = 187.0
+text = "Minimum Roll
+"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="Min Roll Text" type="TextEdit" parent="Min Roll"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = -2.0
+offset_right = 227.0
+offset_bottom = 34.0
+
+[node name="Max Roll" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 232.0
+offset_right = 224.0
+offset_bottom = 262.0
+text = "Maximum Roll
+"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="Max Roll Text" type="TextEdit" parent="Max Roll"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = -1.0
+offset_right = 227.0
+offset_bottom = 35.0
+
+[node name="Daily Cost" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 300.0
+offset_right = 224.0
+offset_bottom = 330.0
+text = "Daily Cost
+"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="Daily Cost Text" type="TextEdit" parent="Daily Cost"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = -1.0
+offset_right = 189.0
+offset_bottom = 35.0
+
+[node name="Hab Decrease" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 369.0
+offset_right = 258.0
+offset_bottom = 399.0
+text = "Habitat Decrease"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="Hab Decrease Text" type="TextEdit" parent="Hab Decrease"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = -2.0
+offset_right = 257.0
+offset_bottom = 34.0
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -92.0
+offset_right = 58.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "RETURN"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

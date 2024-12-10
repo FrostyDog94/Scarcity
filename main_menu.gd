@@ -40,3 +40,7 @@ func _on_check_button_toggled(fullscreen) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	elif fullscreen == false:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_settings_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Settings.tscn")

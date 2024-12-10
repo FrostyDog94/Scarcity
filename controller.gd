@@ -5,8 +5,6 @@ var roll2 = 0
 var habitat_energy : float = 100
 var energy_gained : float
 var travel_cost = 0
-const forage_cost = 1
-const daily_cost = 2
 var hab = 0
 var trav = 0
 var net_energy = 0
@@ -21,6 +19,7 @@ var animation_player
 var roll_min = 5
 var roll_max = 10
 var hab_decrease = 10
+var daily_cost = 3
 
 
 func _ready() -> void:
@@ -31,6 +30,11 @@ func _ready() -> void:
 	animation_player = get_tree().get_root().get_node("Node/Controller/Cutscenes/Slow Buck/AnimationPlayer")
 	AudioPlayer._play_audio_level()
 	AudioPlayer.stream_paused = false
+	
+	roll_min = Score.roll_min
+	roll_max = Score.roll_max
+	hab_decrease = Score.hab_decrease
+	daily_cost = Score.daily_cost
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -100,7 +104,7 @@ func _on_forage_button_pressed() -> void:
 	get_node("Bite").play()
 	_roll2()
 	energy_gained = roll2 * (habitat_energy/100)
-	net_energy = energy_gained - forage_cost - daily_cost 
+	net_energy = energy_gained - daily_cost
 	
 	if habitat_energy > 0:
 		habitat_energy -= hab_decrease
