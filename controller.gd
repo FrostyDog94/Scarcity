@@ -117,7 +117,7 @@ func _get_travel_cost():
 func _on_forage_button_pressed() -> void:
 	get_node("Bite").play()
 	_roll2()
-	energy_gained = roll2 * (habitat_energy/100)
+	energy_gained = roll2 * (habitat_energy * 0.01)
 	net_energy = energy_gained - daily_cost
 	
 	if habitat_energy > 0:
