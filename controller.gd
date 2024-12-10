@@ -2,7 +2,7 @@ extends Node
 
 var roll1 
 var roll2 = 0
-var habitat_energy : float = 100
+var habitat_energy 
 var energy_gained : float
 var travel_cost = 0
 var hab = 0
@@ -16,10 +16,13 @@ var background
 var buck
 var animation_player
 
-var roll_min = 5
-var roll_max = 10
-var hab_decrease = 10
-var daily_cost = 3
+var roll_min 
+var roll_max 
+var hab_decrease 
+var daily_cost 
+var LTC
+var MTC
+var STC
 
 
 func _ready() -> void:
@@ -35,6 +38,17 @@ func _ready() -> void:
 	roll_max = Score.roll_max
 	hab_decrease = Score.hab_decrease
 	daily_cost = Score.daily_cost
+	LTC = Score.LTC
+	MTC = Score.MTC
+	STC = Score.STC
+	total_rolls = Score.days
+	total_energy = Score.start_energy
+	habitat_energy = Score.med_hab
+	
+	get_node("Cutscenes/Short Label/Short Number").text = str(STC)
+	get_node("Cutscenes/Med Label/Med Number").text = str(MTC)
+	get_node("Cutscenes/Long Label/Long Number").text = str(LTC)
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -79,11 +93,11 @@ func _roll2():
 func _get_habitat_energy():
 	hab = _roll1()
 	if hab == 1: 
-		habitat_energy = 50
+		habitat_energy = Score.low_hab
 	elif hab == 2:
-		habitat_energy = 100
+		habitat_energy = Score.med_hab
 	elif hab == 3:
-		habitat_energy = 150
+		habitat_energy = Score.high_hab
 	
 	return habitat_energy
 	
@@ -91,11 +105,11 @@ func _get_habitat_energy():
 func _get_travel_cost():
 	trav = _roll1()
 	if trav == 1:
-		travel_cost = 5
+		travel_cost = STC
 	elif trav == 2:
-		travel_cost = 10
+		travel_cost = MTC
 	elif trav == 3:
-		travel_cost = 15
+		travel_cost = LTC
 		
 	return travel_cost
 		

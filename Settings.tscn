@@ -56,6 +56,133 @@ offset_top = -2.0
 offset_right = 227.0
 offset_bottom = 34.0
 
+[node name="Start Energy" type="Label" parent="."]
+offset_left = 778.0
+offset_top = 164.0
+offset_right = 919.0
+offset_bottom = 194.0
+text = "Start Energy"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="Start Energy Text" type="TextEdit" parent="Start Energy"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = -2.0
+offset_right = 214.0
+offset_bottom = 34.0
+
+[node name="Low Hab" type="Label" parent="."]
+offset_left = 778.0
+offset_top = 234.0
+offset_right = 975.0
+offset_bottom = 264.0
+text = "Low Energy Habitat"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="Low Hab Text" type="TextEdit" parent="Low Hab"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = -2.0
+offset_right = 283.0
+offset_bottom = 34.0
+
+[node name="Med Hab" type="Label" parent="."]
+offset_left = 778.0
+offset_top = 306.0
+offset_right = 1017.0
+offset_bottom = 336.0
+text = "Medium Energy Habitat"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="Med Hab Text" type="TextEdit" parent="Med Hab"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = -2.0
+offset_right = 326.0
+offset_bottom = 34.0
+
+[node name="High Hab" type="Label" parent="."]
+offset_left = 778.0
+offset_top = 378.0
+offset_right = 1017.0
+offset_bottom = 408.0
+text = "High Energy Habitat"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="High Hab Text" type="TextEdit" parent="High Hab"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = -2.0
+offset_right = 295.0
+offset_bottom = 34.0
+
+[node name="Days" type="Label" parent="."]
+offset_left = 436.0
+offset_top = 164.0
+offset_right = 577.0
+offset_bottom = 194.0
+text = "Days
+"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="Days Text" type="TextEdit" parent="Days"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = -2.0
+offset_right = 140.0
+offset_bottom = 34.0
+
+[node name="STC" type="Label" parent="."]
+offset_left = 436.0
+offset_top = 233.0
+offset_right = 577.0
+offset_bottom = 263.0
+text = "Short Travel Cost
+
+"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="STC Text" type="TextEdit" parent="STC"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = -2.0
+offset_right = 260.0
+offset_bottom = 34.0
+
+[node name="MTC" type="Label" parent="."]
+offset_left = 436.0
+offset_top = 302.0
+offset_right = 609.0
+offset_bottom = 365.0
+text = "Medium Travel Cost
+
+"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="MTC Text" type="TextEdit" parent="MTC"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = -2.0
+offset_right = 290.0
+offset_bottom = 34.0
+
+[node name="LTC" type="Label" parent="."]
+offset_left = 436.0
+offset_top = 373.0
+offset_right = 638.0
+offset_bottom = 436.0
+text = "Long Travel Cost
+
+"
+label_settings = SubResource("LabelSettings_4lf6o")
+
+[node name="LTC Text" type="TextEdit" parent="LTC"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = -2.0
+offset_right = 266.0
+offset_bottom = 34.0
+
 [node name="Max Roll" type="Label" parent="."]
 offset_left = 83.0
 offset_top = 232.0

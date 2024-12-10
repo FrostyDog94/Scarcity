@@ -31,19 +31,19 @@ func _process(delta: float) -> void:
 func _travel_cutscene():
 	travel_cost = get_tree().get_root().get_node("Node/Controller").travel_cost
 	cutscene_manager.visible = true
-	if travel_cost <= 5:
+	if travel_cost <= Score.STC:
 		animation = "Short Travel"
 		cutscene_manager.texture = load("res://Travel Textures/Short Travel.jpg")
 		slow_buck.visible = true
 		short_label.visible = true
 		self.play("Short Travel")
-	elif travel_cost > 5 && travel_cost <=10:
+	elif travel_cost > Score.STC && travel_cost <= Score.MTC:
 		animation = "Med Travel"
 		cutscene_manager.texture = load("res://Travel Textures/Med Travel.jpg")
 		med_buck.visible = true
 		med_label.visible = true
 		self.play("Med Travel")
-	elif travel_cost > 10:
+	elif travel_cost > Score.MTC:
 		animation = "Long Travel"
 		cutscene_manager.texture = load("res://Travel Textures/Long Travel.jpg")
 		long_buck.visible = true

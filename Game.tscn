@@ -7,15 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://do84cvdspryj6" path="res://Travel Textures/Long Travel.jpg" id="6_feeka"]
 [ext_resource type="LabelSettings" uid="uid://day81i808t0qc" path="res://Fitness.tres" id="6_m11ew"]
 [ext_resource type="Texture2D" uid="uid://demxja8y4c6kv" path="res://Travel Textures/Elk Icon.png" id="7_hoiiw"]
+[ext_resource type="LabelSettings" uid="uid://cdijrnmlw751j" path="res://cutscene.tres" id="7_ugwet"]
 [ext_resource type="Script" path="res://animation_player_game.gd" id="8_rr8tp"]
 [ext_resource type="Script" path="res://tutorial.gd" id="9_ecpj5"]
 [ext_resource type="AudioStream" uid="uid://ponqrn30nhvl" path="res://Sounds/One Man Symphony - A New Day's Hurry (Free) - 01 A New Day Begins (General Background Music).mp3" id="10_fnnmy"]
 [ext_resource type="AudioStream" uid="uid://bf5nb0tx5eef3" path="res://Sounds/eating-sound-effect-36186.mp3" id="11_ttu3n"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vvskt"]
-font_size = 31
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_qaa7g"]
 resource_name = "Long Travel"
@@ -438,8 +434,18 @@ offset_right = -238.0
 offset_bottom = 105.0
 grow_horizontal = 2
 text = "It's a short distance to the next resource patch
- (Travel Cost = 5)"
-label_settings = SubResource("LabelSettings_vvskt")
+ (Travel Cost =     )"
+label_settings = ExtResource("7_ugwet")
+horizontal_alignment = 1
+
+[node name="Short Number" type="Label" parent="Controller/Cutscenes/Short Label"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 49.0
+offset_right = 474.0
+offset_bottom = 93.0
+text = "5"
+label_settings = ExtResource("7_ugwet")
 horizontal_alignment = 1
 
 [node name="Med Label" type="Label" parent="Controller/Cutscenes"]
@@ -453,8 +459,18 @@ offset_right = -211.0
 offset_bottom = 55.0
 grow_horizontal = 2
 text = "It's a medium distance to the next resource patch
-(Travel Cost = 10)"
-label_settings = SubResource("LabelSettings_vvskt")
+(Travel Cost =     )"
+label_settings = ExtResource("7_ugwet")
+horizontal_alignment = 1
+
+[node name="Med Number" type="Label" parent="Controller/Cutscenes/Med Label"]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 52.0
+offset_right = 487.0
+offset_bottom = 96.0
+text = "5"
+label_settings = ExtResource("7_ugwet")
 horizontal_alignment = 1
 
 [node name="Long Label" type="Label" parent="Controller/Cutscenes"]
@@ -468,8 +484,18 @@ offset_right = -255.0
 offset_bottom = 56.0
 grow_horizontal = 2
 text = "It's a long distance to the next resource patch
-(Travel Cost = 15)"
-label_settings = SubResource("LabelSettings_vvskt")
+(Travel Cost =     )"
+label_settings = ExtResource("7_ugwet")
+horizontal_alignment = 1
+
+[node name="Long Number" type="Label" parent="Controller/Cutscenes/Long Label"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 51.0
+offset_right = 464.0
+offset_bottom = 95.0
+text = "5"
+label_settings = ExtResource("7_ugwet")
 horizontal_alignment = 1
 
 [node name="Slow Buck" type="TextureRect" parent="Controller/Cutscenes"]
@@ -501,10 +527,10 @@ expand_mode = 1
 [node name="Buck Long" type="TextureRect" parent="Controller/Cutscenes"]
 visible = false
 layout_mode = 0
-offset_left = 17.0
-offset_top = 89.0
-offset_right = 39.0
-offset_bottom = 111.0
+offset_left = 82.0
+offset_top = 374.0
+offset_right = 104.0
+offset_bottom = 396.0
 texture = ExtResource("7_hoiiw")
 expand_mode = 1
 
