@@ -6,6 +6,7 @@ var path
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	path = fd.current_dir
+	fd.current_dir = "/Users"
 	get_node("Min Roll/Min Roll Text").text = str(Score.roll_min)
 	get_node("Max Roll/Max Roll Text").text = str(Score.roll_max)
 	get_node("Hab Decrease/Hab Decrease Text").text = str(Score.hab_decrease)

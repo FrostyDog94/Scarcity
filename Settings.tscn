@@ -42,7 +42,6 @@ initial_position = 1
 size = Vector2i(1103, 680)
 content_scale_factor = 1.91
 access = 2
-root_subfolder = "/"
 script = SubResource("GDScript_nkmla")
 
 [node name="TextureRect" type="TextureRect" parent="."]
