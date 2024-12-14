@@ -1,7 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck04t4bbfbcfc"]
+[gd_scene load_steps=6 format=3 uid="uid://ck04t4bbfbcfc"]
 
 [ext_resource type="Texture2D" uid="uid://bbtk8ghdbahxd" path="res://background textures/Green.png" id="1_5nuvy"]
 [ext_resource type="Script" path="res://settings.gd" id="1_situn"]
+
+[sub_resource type="GDScript" id="GDScript_nkmla"]
+script/source = "extends FileDialog
+
+var spreadsheet = [
+	[\"Day\", \"Net Gain\", \"Energy\", \"Habitat Energy\", \"Travel Cost\", \"Fitness\"]
+]
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_ji5gx"]
 font_size = 65
@@ -17,6 +36,14 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Node"]
 script = ExtResource("1_situn")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+initial_position = 1
+size = Vector2i(1103, 680)
+content_scale_factor = 1.91
+access = 2
+root_subfolder = "/"
+script = SubResource("GDScript_nkmla")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -230,7 +257,7 @@ offset_top = -2.0
 offset_right = 257.0
 offset_bottom = 34.0
 
-[node name="Button" type="Button" parent="."]
+[node name="Return" type="Button" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -242,9 +269,32 @@ offset_right = 58.0
 offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0.345098, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 25
 text = "RETURN"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Save Results" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -173.0
+offset_right = 58.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0.423529, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "SAVE RESULTS"
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="Return" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Save Results" to="." method="_on_save_results_pressed"]

@@ -17,3 +17,4 @@ var start_energy = 20
 var low_hab = 50
 var med_hab = 100
 var high_hab = 150
+var path = "nil"

@@ -1,7 +1,11 @@
 extends Node
 
+var path 
+@onready var fd = $FileDialog
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	path = fd.current_dir
 	get_node("Min Roll/Min Roll Text").text = str(Score.roll_min)
 	get_node("Max Roll/Max Roll Text").text = str(Score.roll_max)
 	get_node("Hab Decrease/Hab Decrease Text").text = str(Score.hab_decrease)
@@ -15,11 +19,6 @@ func _ready() -> void:
 	get_node("Med Hab/Med Hab Text").text = str(Score.med_hab)
 	get_node("High Hab/High Hab Text").text = str(Score.high_hab)
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Main Menu.tscn")
@@ -35,3 +34,11 @@ func _on_button_pressed() -> void:
 	Score.low_hab = int(get_node("Low Hab/Low Hab Text").text)
 	Score.med_hab = int(get_node("Med Hab/Med Hab Text").text)
 	Score.high_hab = int(get_node("High Hab/High Hab Text").text)
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	Score.path = path
+
+
+func _on_save_results_pressed() -> void:
+	fd.visible = true

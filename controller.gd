@@ -24,8 +24,14 @@ var LTC
 var MTC
 var STC
 
+var spreadsheet = [
+	["Day", "Net Gain", "Energy", "Habitat Energy", "Travel Cost", "Fitness"]
+]
+
+var os = OS.get_name()
 
 func _ready() -> void:
+	print(OS.get_name())
 	fitness = 0
 	offspring = 0
 	background = get_node("TextureRect")
@@ -49,20 +55,13 @@ func _ready() -> void:
 	get_node("Cutscenes/Med Label/Med Number").text = str(MTC)
 	get_node("Cutscenes/Long Label/Long Number").text = str(LTC)
 	
+	spreadsheet.append([0, net_energy, total_energy, habitat_energy, travel_cost, fitness])
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if habitat_energy <= 0:
 		habitat_energy = 0
-		
-	if total_energy <= 0:
-		total_energy = 0
-		get_tree().change_scene_to_file("res://Game Over.tscn")
-		
-	if total_rolls <= 0:
-		get_tree().change_scene_to_file("res://Win.tscn")
-		Score.fitness = fitness
-		Score.offspring = offspring
 		
 	fitness = snapped(((total_energy - 20) / 15), 0.01)
 	offspring = int(fitness)
@@ -131,6 +130,9 @@ func _on_forage_button_pressed() -> void:
 		travel_cost = 0
 		
 	total_rolls -= 1
+	
+	_append_data()
+	_check_game_over()
 
 	
 func _on_travel_button_pressed() -> void:
@@ -142,6 +144,9 @@ func _on_travel_button_pressed() -> void:
 	net_energy = 0
 	total_energy -= travel_cost
 	total_rolls -= 1
+	
+	_append_data()
+	_check_game_over()
 
 
 func _on_main_menu_button_pressed() -> void:
@@ -170,3 +175,33 @@ func _update_elk():
 		buck.texture = load("res://Sprites/10 buck.png")
 		
 		
+func _append_data():
+	spreadsheet.append([30 - total_rolls, net_energy, total_energy, habitat_energy, travel_cost, fitness])	
+	
+	
+func export_array_to_csv(file_path: String, array_data: Array) -> void:
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	
+	for row in array_data:
+		# Join row elements into a single CSV line
+		var line = ",".join(row.map(func(item): return str(item)))
+		file.store_line(line)  # Write the line to the file
+	
+	file.close()
+	print("CSV exported to: ", file_path)
+	
+
+func _check_game_over():
+	if total_energy <= 0:
+		total_energy = 0
+		get_tree().change_scene_to_file("res://Game Over.tscn")
+		if Score.path != "nil":
+			export_array_to_csv(Score.path, spreadsheet)
+		
+	if total_rolls <= 0:
+		get_tree().change_scene_to_file("res://Win.tscn")
+		Score.fitness = fitness
+		Score.offspring = offspring
+		if Score.path != "nil":
+			export_array_to_csv(Score.path, spreadsheet)
+	
